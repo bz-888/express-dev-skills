@@ -1,23 +1,28 @@
 const skills = [
-    { language: "Javascript", experience: "beginner", status: "actively improving" },
-    { language: "CSS", experience: "beginner", status: "actively improving" },
-    { language: "HTML", experience: "beginner", status: "actively improving" },
-    { language: "Python", experience: "beginner", status: "needs re-training" },
-    { language: "SQL", experience: "beginner", status: "needs re-training" },
+    { skillName: "Javascript", experience: "beginner", status: "actively improving" },
+    { skillName: "CSS", experience: "beginner", status: "actively improving" },
+    { skillName: "HTML", experience: "beginner", status: "actively improving" },
+    { skillName: "Python", experience: "beginner", status: "needs re-training" },
+    { skillName: "SQL", experience: "beginner", status: "needs re-training" },
 ];
 
 module.exports = {
     getAll,
-    getOne
+    getOne,
+    postNew,
 }
 
 function getAll() {
     return skills;
 }
 
-function getOne(language) {
-    const skill = skills.find(skill => language === skill.language);
-    console.log(`test: ${language}`);
-    console.log(`models/skill's skill: ${skill.language}`);
+function getOne(skillName) {
+    const skill = skills.find(skill => skillName === skill.skillName);
+    console.log(`test: ${skillName}`);
+    console.log(`models/skill's skill: ${skill.skillName}`);
     return skill
+}
+
+function postNew(newSkill) {
+    skills.push(newSkill);
 }

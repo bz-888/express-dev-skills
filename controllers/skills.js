@@ -2,7 +2,9 @@ const Skill = require("../models/skill");
 
 module.exports = {
     index,
-    show
+    show,
+    new: newSkill,
+    create,
 }
 
 function index(req, res) {
@@ -13,9 +15,19 @@ function index(req, res) {
 }
 
 function show(req, res) {
-    const skill = Skill.getOne(req.params.language)
-    console.log(`controllers/skills's language: ${skill.language}`);
+    const skill = Skill.getOne(req.params.skillName)
+    console.log(`controllers/skills's skillName: ${skill.skillName}`);
     res.render("skills/show", {
-        selectedLanguage: skill,
+        skill: skill,
     });
+}
+
+function newSkill(req, res) {
+    res.render("skills/newSkill");
+}
+
+function create(req, res) {
+    // console.log(req.body);
+    Skill.postNew(req.body);
+    res.redirect("/skills");
 }

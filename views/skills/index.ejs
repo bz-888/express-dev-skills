@@ -13,7 +13,7 @@
     <ul>
         <% skills.forEach(function(skill) { %>
             <li>
-                <a href="/skills/<%= skill.language %>"><%= skill.language %></a>
+                <a href="/skills/<%= skill.skillName %>"><%= skill.skillName %></a>
                 | Experience Level:
                 <%= skill.experience %>
                 | Status of Knowledge:
@@ -21,6 +21,8 @@
             </li>
         <% }); %>
     </ul>
+    <br>
+    <a href="/skills/newSkill">Include a new skill.</a>
 </body>
 
 </html>
